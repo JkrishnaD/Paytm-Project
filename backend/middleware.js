@@ -3,13 +3,14 @@ const jwt = require('jsonwebtoken');
 const jwt_secret = require('./config');
 
 function authMiddleware(req, res, next) {
+
     const authHeader = req.headers.authorization;
 
-    if (!authHeader || !authHeader.startsWith('Bearer')) {
-        res.status(403).json({})
+    if (!authHeader) {
+        res.status(403).json({msg : "Header"})
     }
 
-    const token = authHeader.split('')[1];
+    const token = authHeader
 
     try {
         const decode = jwt.verify(token, jwt_secret)
@@ -19,7 +20,7 @@ function authMiddleware(req, res, next) {
         }
     } catch (err) {
         return res.status(403).json({
-            msg: "UnAuthorized"
+            msg: err
         })
     }
 }
