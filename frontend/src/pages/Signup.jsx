@@ -14,11 +14,11 @@ export function Signup() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     return (
-        <div className="flex justify-center bg-slate-500 h-screen">
+        <div className="flex justify-center bg-blue-300 h-screen">
             <div className="flex justify-center flex-col">
                 <div className="rounded-lg bg-white w-80 text-center p-2 h-max px-4">
                     <Heading label={"Sign up"} />
-                    <SubHeading label={"Enter your infromation to create an account"} />
+                    <SubHeading label={" Enter your infromation to create an account"} />
                     <InputBox onchange={e => { setFirstName(e.target.value) }} placeholder="firstname" label={"First Name"} />
                     <InputBox onchange={e => { setLastName(e.target.value) }} placeholder="lastname" label={"Last Name"} />
                     <InputBox onchange={e => { setUsername(e.target.value) }} placeholder="Email addresses" label={"Email"} />
